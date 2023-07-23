@@ -1,0 +1,81 @@
+
+The  class DBConnection that provides a method getConnection() for establishing a database connection.
+
+Class.forName("com.mysql.cj.jdbc.Driver") loads the MySQL Connector/J JDBC driver, which allows Java applications to interact with a MySQL database. 
+
+connection = DriverManager.getConnection(url, user, pass);
+ initializes the Connection object connection by creating a new connection to the database. 
+It uses the DriverManager class and its getConnection method to establish a connection to the database
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public  Connection getConnection() 
+{
+        Connection connection=null;
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String url="jdbc:mysql://localhost:3306/musicplayer";
+        String user="root";
+        String pass="admin";
+        connection= DriverManager.getConnection(url,user,pass);
+        return connection;
+    }
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The class "JukeBoxDOA“
+
+
+playSong - This method takes a list of Music objects as an argument, prints all the details of the songs available in the list and lets the user choose a song to play. It also provides several options to the user to control the playback such as play, pause, shuffle, playNext, playPrevious, resume, restart, forward, backward, turn off shuffle, and stop.
+
+searchSong - This method allows the user to search for a specific song based on the genre. It returns a list of Music objects that match the search criteria.
+
+searchSongs - This method allows the user to search for a specific song based on the song name, artist name, or genre. It returns a list of Music objects that match the search criteria.
+
+allSongsList- retrieve all the data from the "songs" table in the "musicplayer" database. 
+
+getAllSongsBySongId-This method that retrieves all the songs in a music database based on their song IDs. The method accepts a list of song IDs as input, and returns a list of Music objects that correspond to the song IDs.
+
+playList- this method retrieves all the playlists from the "playlist" table in the "musicplayer" database.
+
+getSongId - is used to retrieve the song IDs of a specific playlist based on the playlist's ID. The method accepts a List of Playlist objects and an integer id as input. It creates a new List of Integer objects named songIds 
+
+createPlayList- creates a new playlist in the music player database by inserting a new row in the "playlist" table. 	           The name of the playlist is taken as input from the user.
+addToPlaylist - This method allows the user to add a song to a playlist.
+viewPlaylist-  Retrieves playlists and displays the playlist's ID and name. It then retrieves the song IDs of each      	        playlist using the playlist ID and retrieves the full details of each song using the song IDs 	        and the full song list.
+displayPlaylist - This method displays the songs present in the playlist.
+findSongById- This method takes an id and a list of Music objects as input and returns a Music object that has a 	             songId equal to the input id.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The class “PlayJukeBox”
+
+playAudio(String source, int count): This method plays an audio file located at the given source path, with the specified count number of loops. It also sets the status variable 
+      to "play".
+
+play(): This method starts playing the audio file if it's not already playing. It sets the status variable to "play".
+
+playNext(String source, int count): This method closes the currently playing audio file, and plays the next audio file located at the given source path with the specified count 
+      number of loops.
+
+playPrevious(String source, int count): This method closes the currently playing audio file and plays the previous audio file located at the given source path with the specified 
+       count number of loops.
+
+pause(): This method pauses the audio file if it's currently playing. It sets the status variable to "paused".
+
+resume(): This method resumes playing the audio file if it's paused.
+
+restart(): This method stops and restarts the audio file from the beginning.
+
+forward(): This method advances the audio file by 20 seconds.
+
+backward(): This method rewinds the audio file by 20 seconds.
+
+resetAudioStream(): This method resets the audio stream and opens it again.
+
+
+
+
+
+
